@@ -31,8 +31,6 @@ String pageToRoute(Pages page) {
   }
 }
 
-late VoidCallback data;
-
 class WebsiteData extends State<Website> with SingleTickerProviderStateMixin {
   Pages currentPage = Pages.home;
   bool _initialized = false;

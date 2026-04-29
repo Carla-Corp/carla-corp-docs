@@ -1,3 +1,4 @@
+import 'dart:html' as html;
 import 'package:docs/components/glassed_button.dart';
 import 'package:docs/components/glassed_card.dart';
 import 'package:docs/components/glassed_code.dart';
@@ -39,6 +40,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.width < 800;
     final double bannerHeight = isMobile ? proportional(1080, MediaQuery.of(context).size.width * 0.8, 1920) : 300;
+
+    String? route = html.window.localStorage['route'];
+    if( route != null && route != 'nil' ) {
+      widget.navigate(routeToPage(route));
+      html.window.localStorage['route'] = 'nil';
+    }
 
     return Scaffold(
       backgroundColor: Colors.black,

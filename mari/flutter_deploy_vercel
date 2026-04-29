@@ -1,0 +1,9 @@
+REPOSITORY="$HOME/Desktop/docs/carla-corp-docs"
+WEBSITE="$HOME/Desktop/docs/site"
+
+rm -rf "$WEBSITE/flutter"
+cp -r "$REPOSITORY/build/web" "$WEBSITE/flutter"
+
+cd $WEBSITE
+vercel --prod
+cd $REPOSITORY
