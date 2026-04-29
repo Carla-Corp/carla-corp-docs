@@ -14,7 +14,6 @@ class Website extends StatefulWidget {
 }
 
 Pages routeToPage(String? route) {
-  print("found route $route");
   switch (route) {
     case '/docs': return Pages.documentation;
     case '/downloads': return Pages.downloads;
@@ -84,7 +83,8 @@ class WebsiteData extends State<Website> with SingleTickerProviderStateMixin {
     final route = pageToRoute(page);
 
     html.window.history.pushState(null, '', route);
-    
+    html.document.title = 'Carla & Morgana';
+
     setState(() {
       currentPage = page;
     });

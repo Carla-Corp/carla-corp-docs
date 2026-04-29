@@ -38,6 +38,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    html.document.title = 'Carla & Morgana';
+    
     bool isMobile = MediaQuery.of(context).size.width < 800;
     final double bannerHeight = isMobile ? proportional(1080, MediaQuery.of(context).size.width * 0.8, 1920) : 300;
 
