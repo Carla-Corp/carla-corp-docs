@@ -1,1 +1,0 @@
- /home/dev_lucasfs/Desktop/docs/docs/docs/build/a00e7a7cb94c8c164fff55bb89ef0e97/dart_build_result.json:  /home/dev_lucasfs/Desktop/docs/docs/docs/.dart_tool/package_config.json /home/dev_lucasfs/Desktop/docs/docs/docs/pubspec.yaml /home/dev_lucasfs/fvm/versions/3.41.0/bin/cache/dart-sdk/version
