@@ -1,0 +1,1 @@
+ /home/dev_lucasfs/Desktop/docs/carla-corp-docs/.dart_tool/flutter_build/631d10f7a493d0b27eea758d2d34ea3e/native_assets.json: 

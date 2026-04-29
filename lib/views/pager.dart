@@ -2,8 +2,6 @@ import 'dart:html' as html;
 import 'package:docs/components/animations/animated_load.dart';
 import 'package:docs/components/metalic_button.dart';
 import 'package:docs/main.dart';
-import 'package:docs/strings.dart';
-import 'package:docs/utils/url_launcher.dart';
 import 'package:docs/views/downloads/downloads.dart';
 import 'package:docs/views/home/home.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +14,7 @@ class Website extends StatefulWidget {
 }
 
 Pages routeToPage(String? route) {
+  print("found route $route");
   switch (route) {
     case '/docs': return Pages.documentation;
     case '/downloads': return Pages.downloads;
