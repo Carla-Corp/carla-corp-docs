@@ -9,6 +9,7 @@
       "dependencies": [
         "cupertino_icons",
         "flutter",
+        "flutter_markdown_plus",
         "flutter_vector_icons",
         "google_fonts",
         "omni_video_player",
@@ -43,6 +44,16 @@
         "stream_channel",
         "test_api",
         "vector_math"
+      ]
+    },
+    {
+      "name": "flutter_markdown_plus",
+      "version": "1.0.7",
+      "dependencies": [
+        "flutter",
+        "markdown",
+        "meta",
+        "path"
       ]
     },
     {
@@ -210,6 +221,14 @@
         "stream_channel",
         "string_scanner",
         "term_glyph"
+      ]
+    },
+    {
+      "name": "markdown",
+      "version": "7.3.1",
+      "dependencies": [
+        "args",
+        "meta"
       ]
     },
     {
@@ -501,6 +520,11 @@
         "source_span",
         "string_scanner"
       ]
+    },
+    {
+      "name": "args",
+      "version": "2.7.0",
+      "dependencies": []
     },
     {
       "name": "flutter_inappwebview_windows",
@@ -812,11 +836,6 @@
     {
       "name": "ffi",
       "version": "2.2.0",
-      "dependencies": []
-    },
-    {
-      "name": "args",
-      "version": "2.7.0",
       "dependencies": []
     },
     {

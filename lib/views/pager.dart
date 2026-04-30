@@ -2,6 +2,7 @@ import 'dart:html' as html;
 import 'package:docs/components/animations/animated_load.dart';
 import 'package:docs/components/metalic_button.dart';
 import 'package:docs/main.dart';
+import 'package:docs/views/documentation/documentation.dart';
 import 'package:docs/views/downloads/downloads.dart';
 import 'package:docs/views/home/home.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,10 @@ Pages routeToPage(String? route) {
   switch (route) {
     case '/docs': return Pages.documentation;
     case '/downloads': return Pages.downloads;
-    case '/':
-    default: return Pages.home;
+    case '/': return Pages.home;
+    default: 
+    if( (route?? '').startsWith("/docs/") ) return Pages.documentation;   
+    return Pages.home;
   }
 }
 
@@ -99,12 +102,14 @@ class WebsiteData extends State<Website> with SingleTickerProviderStateMixin {
           ? HomePage(navigate: _navigate)
           : currentPage == Pages.downloads 
           ? DownloadsPage(navigate: _navigate)
-          : const Center(
+          : currentPage == Pages.documentation
+          ? ChooserPage(navigate: _navigate)
+          : Center(
               child: Column(
                 mainAxisAlignment: .center,
                 children: [
                   Text(
-                    "Documentation",
+                    pageToRoute(currentPage),
                     style: TextStyle(fontSize: 32, color: Colors.white),
                   ),
                   Text(

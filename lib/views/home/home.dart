@@ -45,8 +45,11 @@ class _HomePageState extends State<HomePage> {
 
     String? route = html.window.localStorage['route'];
     if( route != null && route != 'nil' ) {
+      if(! route.startsWith('/docs/') ) {
+        html.window.localStorage['route'] = 'nil';
+      }
+
       widget.navigate(routeToPage(route));
-      html.window.localStorage['route'] = 'nil';
     }
 
     return Scaffold(
