@@ -13,7 +13,7 @@ class DownloadsPage extends StatefulWidget {
 }
 
 class _DownloadsPageState extends State<DownloadsPage> {
-  EdgeInsets common_padding = const EdgeInsets.symmetric(vertical: 40, horizontal: 100);
+  EdgeInsets common_padding = const EdgeInsets.only(top: 40, bottom: 40, left: 100, right: 0);
   int selected = 0;
 
   @override
@@ -52,35 +52,38 @@ class _DownloadsPageState extends State<DownloadsPage> {
                   ),
                 ),
               ),
-
+        
               SizedBox(height: 30),
               Text("Commonly downloaded", style: GoogleFonts.stackSansText(
                 fontSize: 35,
                 fontWeight: .bold,
                 color: Color(0xffcccccc)
               )),
-
+        
               SizedBox(height: 10),
 
-              Row(
-                spacing: 10,
-                children: [
-                  CommonDownloadEmbed(
-                    os: "Microsoft Windows",
-                    description: "Windows 10 or later with Intel/AMD processor",
-                    binaryName: "carla@latest.windows-installer.exe",
-                    icon: Icons.window_sharp,
-                    url: "https://carla-cdn.vercel.app/carla@latest.windows-installer.exe"
-                  ),
-                  CommonDownloadEmbed(
-                    os: "Linux based systems",
-                    description: "Linux 3.6 or later with Intel/AMD processor",
-                    binaryName: "carla@latest.linux-installer.sh",
-                    icon: Ionicons.logo_tux,
-                    url: "https://carla-cdn.vercel.app/carla@latest.linux-installer.sh"
-                  ),
-                ],
-              )
+              SingleChildScrollView(
+                scrollDirection: .horizontal,
+                child: Row(
+                  spacing: 10,
+                  children: [
+                    CommonDownloadEmbed(
+                      os: "Microsoft Windows",
+                      description: "Windows 10 or later with Intel/AMD processor",
+                      binaryName: "carla@latest.windows-installer.exe",
+                      icon: Icons.window_sharp,
+                      url: "https://carla-cdn.vercel.app/carla@latest.windows-installer.exe"
+                    ),
+                    CommonDownloadEmbed(
+                      os: "Linux based systems",
+                      description: "Linux 3.6 or later with Intel/AMD processor",
+                      binaryName: "carla@latest.linux-installer.sh",
+                      icon: Ionicons.logo_tux,
+                      url: "https://carla-cdn.vercel.app/carla@latest.linux-installer.sh"
+                    ),
+                  ],
+                )
+              ),
             ],
           ),
         ),
