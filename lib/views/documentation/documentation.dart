@@ -156,6 +156,7 @@ class _ChooserPageState extends State<ChooserPage> {
                                       ],
                                     ),
                                     Row(
+                                      spacing: 5,
                                       children: const [
                                         KeyboardIcon(text: "Ctrl"),
                                         KeyboardIcon(text: "K"),

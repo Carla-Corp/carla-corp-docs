@@ -4,12 +4,14 @@ import 'package:docs/components/glassed_card.dart';
 import 'package:docs/components/glassed_code.dart';
 import 'package:docs/components/glassed_toggle.dart';
 import 'package:docs/components/metalic_button.dart';
+import 'package:docs/components/social_button.dart';
 import 'package:docs/main.dart';
 import 'package:docs/strings.dart';
 import 'package:docs/utils/proportion.dart';
 import 'package:docs/utils/url_launcher.dart';
 import 'package:docs/views/pager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -635,6 +637,64 @@ void main() {
                   )
                 ],
               )
+            ),
+            if( isMobile ) SizedBox(height: 120),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 168, 126, 163),
+                      Color.fromARGB(255, 149, 95, 209)
+                    ]
+                  )
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(100.0),
+                        child: Column(
+                          crossAxisAlignment: isMobile ? .start : .center,
+                          children: [
+                            Text("Do you wanna know Carla and Morgana?", style: GoogleFonts.stackSansText(
+                              fontSize: 45,
+                              fontWeight: .bold,
+                              color: Colors.white
+                            )),
+                            SizedBox(height: 30),
+                            SizedBox(
+                              width: 230,
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor: WidgetStatePropertyAll(Colors.black)
+                                ),
+                                onPressed: () => widget.navigate(Pages.downloads), 
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Row(
+                                    mainAxisAlignment: .center,
+                                    spacing: 15,
+                                    children: [
+                                      Text("Download", style: GoogleFonts.roboto(
+                                        fontSize: 19.4,
+                                        color: Colors.white
+                                      )),
+                                      Icon(Icons.arrow_outward_rounded, color: Colors.white, weight: 900, size: 28)
+                                    ],
+                                  ),
+                                )
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ),
+                  ],
+                ),
+              ),
             )
           ],
         ),
