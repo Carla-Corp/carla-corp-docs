@@ -3,18 +3,24 @@ import 'package:docs/components/documentation/keyboard.dart';
 import 'package:docs/main.dart';
 import 'package:docs/views/documentation/carla.dart';
 import 'package:docs/views/documentation/data.dart';
+import 'package:docs/views/documentation/eva.dart';
 import 'package:docs/views/documentation/overview.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'dart:html' as html;
-import 'package:docs/components/documentation/keyboard.dart';
-import 'package:docs/main.dart';
-import 'package:docs/views/documentation/carla.dart';
-import 'package:docs/views/documentation/data.dart';
-import 'package:docs/views/documentation/overview.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+Map<String, GlobalKey> makeFieldsGlobalKeysFrom(String project) {
+  Map<String, GlobalKey> resolve = {};
+  for( final documentationField in documentationData ) {
+    if( (documentationField as dynamic)['category'] != project ) continue;
+    final fields = (documentationField as dynamic)['fields'] as List<String>;
+
+    for( final field in fields ) {
+      final maked = field.toLowerCase().replaceAll(' ', '-');
+      resolve[maked] = GlobalKey();
+    }
+  }
+  return resolve;
+}
 
 class ChooserPage extends StatefulWidget {
   final void Function(Pages) navigate;
@@ -185,9 +191,16 @@ class _ChooserPageState extends State<ChooserPage> {
                       key: ValueKey(current),
                       controller: _contentScrollController,
                       child: current == "Overview"
-                          ? Overview()
+                          ? Overview(d: _changeContent)
                           : current == "Carla"
                           ? Carla(
+                              key: ValueKey(component),
+                              component: component,
+                              scrollController: _contentScrollController,
+                            )
+                          : current == "Eva"
+                          ? Eva(
+                              key: ValueKey(component),
                               component: component,
                               scrollController: _contentScrollController,
                             )
@@ -227,17 +240,21 @@ class _DocumentationFieldState extends State<DocumentationField> {
       }),
       child: InkWell(
         onTap: widget.fn,
-        child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 30, vertical: 10),
-          child: AnimatedSwitcher(
-            duration: Duration(milliseconds: 200),
-            child: Text(
-              widget.label,
-              key: ValueKey(hover),
-              style: GoogleFonts.poppins(
-                color: hover ? Colors.white : Colors.grey,
-                fontSize: 16,
-              ),
+        child: AnimatedSwitcher(
+          duration: Duration(milliseconds: 200),
+          child: Padding(
+            padding: const EdgeInsets.symmetric( horizontal: 20, vertical: 7 ),
+            child: Row(
+              children: [
+                Text(
+                  widget.label,
+                  key: ValueKey(hover),
+                  style: GoogleFonts.poppins(
+                    color: hover ? Colors.white : Colors.grey,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -260,7 +277,7 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       child: Column(
         crossAxisAlignment: .start,
         children: [

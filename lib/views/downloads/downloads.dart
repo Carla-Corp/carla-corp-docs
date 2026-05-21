@@ -98,8 +98,10 @@ class CommonDownloadEmbed extends StatelessWidget {
   final String binaryName;
   final String url;
   final IconData icon;
+  final VoidCallback? fn;
   const CommonDownloadEmbed({
     super.key,
+    this.fn,
     required this.os,
     required this.description,
     required this.binaryName,
@@ -112,7 +114,7 @@ class CommonDownloadEmbed extends StatelessWidget {
     return SizedBox(
       width: 400,
       child: InkWell(
-        onTap: () => redirectTo(url),
+        onTap: fn ?? () => redirectTo(url),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
