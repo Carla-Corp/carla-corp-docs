@@ -70,9 +70,9 @@ class _DownloadsPageState extends State<DownloadsPage> {
                     CommonDownloadEmbed(
                       os: "Microsoft Windows",
                       description: "Windows 10 or later with Intel/AMD processor",
-                      binaryName: "carla@latest.windows-installer.exe",
+                      binaryName: "carla@latest.windows-installer.zip (compressed)",
                       icon: Icons.window_sharp,
-                      url: "https://carla-cdn.vercel.app/carla@latest.windows-installer.exe"
+                      url: "https://carla-cdn.vercel.app/carla@latest.windows-installer.zip"
                     ),
                     CommonDownloadEmbed(
                       os: "Linux based systems",
