@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                                       duration: Duration(milliseconds: 300),
                                       child: selected == 0
                                         ? GlassedCode(
-                                            width: isMobile ? MediaQuery.of(context).size.width * 0.8 : null,
+                                            width: isMobile ? (MediaQuery.of(context).size.width * 0.8) - 5 : null,
                                             key: ValueKey('carla_code'),
                                             output: '''@_start
 void main = () {
@@ -279,7 +279,7 @@ void main = () {
                                             command: "cat main.crl"
                                           )
                                         : GlassedCode(
-                                            width: isMobile ? MediaQuery.of(context).size.width * 0.8 : null,
+                                            width: isMobile ? (MediaQuery.of(context).size.width * 0.8) - 5 : null,
                                             key: ValueKey('morgana_code'),
                                             output: '''comptime _start
 void main() {

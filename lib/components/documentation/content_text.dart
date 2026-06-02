@@ -11,12 +11,18 @@ class ContentText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
-      child: Text(label, style: GoogleFonts.poppins(
-        fontSize: 18,
-        color: Colors.grey
-      )),
-    );
+    return 
+      MediaQuery.of(context).size.width < 800 
+      ? Text(label, style: GoogleFonts.poppins(
+          fontSize: 18,
+          color: Colors.grey
+        ))
+      : SizedBox(
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: Text(label, style: GoogleFonts.poppins(
+            fontSize: 18,
+            color: Colors.grey
+          )),
+        );
   }
 }

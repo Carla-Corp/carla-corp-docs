@@ -83,7 +83,7 @@ class _GlassedCodeState extends State<GlassedCode> {
                     bottomRight: Radius.circular(10),
                   ),
                 ),
-                width: widget.width ?? MediaQuery.of(context).size.width * percent,
+                width: widget.width ?? (MediaQuery.of(context).size.width * percent) - 5,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(

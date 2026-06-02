@@ -1,3 +1,7 @@
+import 'package:docs/components/documentation/category_text.dart';
+import 'package:docs/components/documentation/content_code.dart';
+import 'package:docs/components/documentation/content_text.dart';
+import 'package:docs/components/documentation/content_title.dart';
 import 'package:docs/main.dart';
 import 'package:docs/utils/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +17,6 @@ class DownloadsPage extends StatefulWidget {
 }
 
 class _DownloadsPageState extends State<DownloadsPage> {
-  EdgeInsets common_padding = const EdgeInsets.only(top: 40, bottom: 40, left: 100, right: 0);
   int selected = 0;
 
   @override
@@ -29,6 +32,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
   @override
   Widget build(BuildContext context) {
     bool isMobile = MediaQuery.of(context).size.width < 800;
+    EdgeInsets common_padding = EdgeInsets.only(top: 40, bottom: 40, left: (isMobile ? 20 : 100), right: (isMobile ? 20 : 0));
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -37,29 +41,10 @@ class _DownloadsPageState extends State<DownloadsPage> {
           child: Column(
             crossAxisAlignment: .start,
             children: [
-              Text("All releases", style: GoogleFonts.stackSansText(
-                fontSize: 45,
-                fontWeight: .bold,
-                color: Colors.white
-              )),
-              SizedBox(
-                width: MediaQuery.of(context).size.width/2,
-                child: Text(
-                  "You can find all available versions of Carla and Morgana ready for download here. See more about each released version on our Github.",
-                  style: GoogleFonts.poppins(
-                    color: Colors.grey,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-        
-              SizedBox(height: 30),
-              Text("Commonly downloaded", style: GoogleFonts.stackSansText(
-                fontSize: 35,
-                fontWeight: .bold,
-                color: Color(0xffcccccc)
-              )),
-        
+              SizedBox(height: 20),
+
+              ContentTitle(label: "Commonly downloaded"),
+
               SizedBox(height: 10),
 
               SingleChildScrollView(
@@ -76,7 +61,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
                     ),
                     CommonDownloadEmbed(
                       os: "Linux based systems",
-                      description: "Linux 3.6 or later with Intel/AMD processor",
+                      description: "All Linux distributions — ZSH recommended",
                       binaryName: "carla@latest.linux-installer.sh",
                       icon: Ionicons.logo_tux,
                       url: "https://carla-cdn.vercel.app/carla@latest.linux-installer.sh"
@@ -84,6 +69,18 @@ class _DownloadsPageState extends State<DownloadsPage> {
                   ],
                 )
               ),
+
+              SizedBox(height: 50),
+              
+              CategoryText(label: "Linux based systems"),
+              ContentTitle(label: "Download instructions"),
+              ContentText(label: "By default, the downloaded shell file will try to catch your processor architeture and your operational system. But, sometimes it can't catch that data correctly. So, you can pass manually to shell file. You can see below a simple example of how to pass that info."),
+
+              ContentCode(
+                title: "sh-session", 
+                code: "\$ ./carla@latest.linux-installer.sh aarch64 android"
+              )
+
             ],
           ),
         ),

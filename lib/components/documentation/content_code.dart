@@ -9,6 +9,7 @@ class ContentCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isMobile = MediaQuery.of(context).size.width < 800;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
@@ -16,25 +17,55 @@ class ContentCode extends StatelessWidget {
           color: Color(0xff1d1d1d),
           borderRadius: BorderRadius.circular(10)
         ),
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.5,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: .start,
-              children: [
-                Text(title, style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 13,
-                )),
-                SizedBox(height: 10),
-                Text(code, style: GoogleFonts.jetBrainsMono(
-                  color: Colors.grey,
-                  fontSize: 15,
-                ))
-              ],
+        child: 
+          isMobile 
+          ? Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Column(
+                crossAxisAlignment: .start,
+                children: [
+                  Text(title, style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 13,
+                  )),
+                  SizedBox(height: 10),
+                  SingleChildScrollView(
+                    scrollDirection: .horizontal,
+                    child: Text(code, 
+                      overflow: .fade,
+                      softWrap: false,
+                      style: GoogleFonts.jetBrainsMono(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      )
+                    ),
+                  )
+                ],
+              )
+            )
+          : SizedBox(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Column(
+                crossAxisAlignment: .start,
+                children: [
+                  Text(title, style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 13,
+                  )),
+                  SizedBox(height: 10),
+                  Text(code, 
+                    overflow: .fade,
+                    softWrap: false,
+                    style: GoogleFonts.jetBrainsMono(
+                      color: Colors.grey,
+                      fontSize: 15,
+                    )
+                  )
+                ],
+              ),
             ),
-          ),
         ),
       ),
     );
