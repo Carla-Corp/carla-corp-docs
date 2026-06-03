@@ -38889,7 +38889,7 @@ g.push(A.b9("Carla and Morgana are compatible with many of architectures.",a4,a4
 if(r)g.push(A.ap(a4,20,a4))
 g.push(A.ap(a4,20,a4))
 f=r?new A.aP(8,8,8,8):new A.aP(0,0,0,0)
-g.push(new A.bC(f,A.Cy(A.IO(B.dN,A.c([new A.jd(B.d7,"Arduino (AVR)","Morgana's extender for AVR assembly has been implemented.","assets/atmega.png",a4),new A.jd(B.d7,"Tensilica (xTensa)","Morgana's extender for xTensa assembly has been implemented.","assets/xtensa.jpg",a4),new A.jd(B.d7,"Intel/AMD (x86_64)","Morgana's extender for x86_64 assembly has been implemented.","assets/x86_64.jpg",a4),new A.jd(B.d7,"Qualcomm ... (ARM)","Morgana's extender for ARM assembly has been implemented.","assets/arm.png",a4),new A.jd(B.d7,"SiFive ... (Risc-V)","Morgana's extender for Ricv-V assembly has been implemented.","assets/risc-v.png",a4)],m),B.dO,B.ac,B.bf,15,15),a4,a4),a4))
+g.push(new A.bC(f,A.Cy(A.IO(B.dN,A.c([new A.jd(B.d7,"Arduino (AVR)","Morgana's extensor for AVR assembly has been implemented.","assets/atmega.png",a4),new A.jd(B.d7,"Tensilica (xTensa)","Morgana's extensor for xTensa assembly has been implemented.","assets/xtensa.jpg",a4),new A.jd(B.d7,"Intel/AMD (x86_64)","Morgana's extensor for x86_64 assembly has been implemented.","assets/x86_64.jpg",a4),new A.jd(B.d7,"Qualcomm ... (ARM)","Morgana's extensor for ARM assembly has been implemented.","assets/arm.png",a4),new A.jd(B.d7,"SiFive ... (Risc-V)","Morgana's extensor for Ricv-V assembly has been implemented.","assets/risc-v.png",a4)],m),B.dO,B.ac,B.bf,15,15),a4,a4),a4))
 i=A.c2(a4,new A.bC(h,A.bD(g,B.q,B.p),a4),B.o,a4,a4,new A.bP(a4,a4,a4,a4,a4,new A.f2(B.js,B.fE,B.ar,j,i,a4),B.J),a4,a4,a4,a4,a4,a4,a4,a4)
 j=A.aH(b9,a4,s).w
 g=A.a8(b7)

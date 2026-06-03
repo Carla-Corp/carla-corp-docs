@@ -44,6 +44,25 @@ int32 identifier = () {
 };
 ```
 
+# Const
+
+`const` is a keyword in Carla used to declare immutable values that are resolved entirely during preprocessing.
+
+Unlike regular variables, constants are evaluated at compile time. While Carla is a typed language, the compiler is often able to determine the exact type of a value automatically through type inference. As a result, preprocessed values do not require explicit type annotations in declarations. The compiler directly substitutes the constant value wherever it is used, eliminating any runtime overhead.
+
+You can define a constant explicitly with a type annotation:
+
+```carla
+const uint8* text = "Hello, world";
+```
+
+Or you can use implicit typing, where the compiler infers the type automatically using the `:=` syntax:
+
+```carla
+const text := "Hello, world";
+-- By default, it uses: `ostr` instead of `uint8*`
+```
+
 # Puts
 
 `puts` is a built-in statement in Carla used to print static strings to standard output (stdout).
