@@ -17,6 +17,35 @@ void main = () {
 }
 ```
 
+# Macros
+
+Macros are compile-time operations that allow the compiler to perform transformations, validations, or generate values before the final code is emitted. They are evaluated during compilation and do not exist at runtime.
+
+Macros are invoked using the `@` prefix followed by the macro name and its arguments.
+
+# @cast
+
+The `@cast` macro performs an explicit type conversion.
+
+It requires three arguments, in the following order:
+
+1. The source type.
+2. The target type.
+3. The value to be converted.
+
+Example:
+
+```carla
+const food := "potatoes";
+puts "Yesterday, I ate " + @cast(int32, asciz, 3) + " " + food + "!\n";
+-- Yesterday, I ate 3 potatoes!
+```
+
+In this example, the integer value `3` is converted from `int32` to `asciz`, allowing it to be concatenated with strings.
+
+It results an static string. (`const asciz`)
+
+
 # Declarations
 
 Carla declarations are composed by a type, an identifier and an operator.  
@@ -60,7 +89,7 @@ Or you can use implicit typing, where the compiler infers the type automatically
 
 ```carla
 const text := "Hello, world";
--- By default, it uses: `ostr` instead of `uint8*`
+-- By default, it uses: `asciz` instead of `uint8*`
 ```
 
 # Puts

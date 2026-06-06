@@ -17,6 +17,35 @@ void main = () {
 }
 ```
 
+# Macros
+
+Macros are compile-time operations that allow the compiler to perform transformations, validations, or generate values before the final code is emitted. They are evaluated during compilation and do not exist at runtime.
+
+Macros are invoked using the `@` prefix followed by the macro name and its arguments.
+
+# @cast
+
+The `@cast` macro performs an explicit type conversion.
+
+It requires three arguments, in the following order:
+
+1. The source type.
+2. The target type.
+3. The value to be converted.
+
+Example:
+
+```carla
+const food := "potatoes";
+puts "Yesterday, I ate " + @cast(int32, asciz, 3) + " " + food + "!\n";
+-- Yesterday, I ate 3 potatoes!
+```
+
+In this example, the integer value `3` is converted from `int32` to `asciz`, allowing it to be concatenated with strings.
+
+It results an static string. (`const asciz`)
+
+
 # Declarations
 
 Carla declarations are composed by a type, an identifier and an operator.  
@@ -42,6 +71,25 @@ Of course, all functions can have a return value. Like in most programming langu
 int32 identifier = () {
   return 14;
 };
+```
+
+# Const
+
+`const` is a keyword in Carla used to declare immutable values that are resolved entirely during preprocessing.
+
+Unlike regular variables, constants are evaluated at compile time. While Carla is a typed language, the compiler is often able to determine the exact type of a value automatically through type inference. As a result, preprocessed values do not require explicit type annotations in declarations. The compiler directly substitutes the constant value wherever it is used, eliminating any runtime overhead.
+
+You can define a constant explicitly with a type annotation:
+
+```carla
+const uint8* text = "Hello, world";
+```
+
+Or you can use implicit typing, where the compiler infers the type automatically using the `:=` syntax:
+
+```carla
+const text := "Hello, world";
+-- By default, it uses: `asciz` instead of `uint8*`
 ```
 
 # Puts
